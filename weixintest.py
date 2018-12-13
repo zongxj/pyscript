@@ -2,7 +2,7 @@
 import urllib.request
 import json
 import sys
-from pip._vendor import requests
+import requests
 
 class weixin_zabbix(object):
 
