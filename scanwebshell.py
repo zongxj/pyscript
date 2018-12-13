@@ -44,10 +44,10 @@ rulelist = [
     '旁注'
     ]
 
+
 def Scan(path):
     for root, dirs, files in os.walk(path):
         for filespath in files:
-            isover = False
             if '.' in filespath:
                 ext = filespath[(filespath.rindex('.')+1):]
                 if ext == 'jsp':
@@ -61,6 +61,7 @@ def Scan(path):
                             print('恶意代码：' + str(result[0]))
                             print('\n\n')
                             break
+
 
 if os.path.lexists(sys.argv[1]):
     print('\n\n开始扫描：'+sys.argv[1])

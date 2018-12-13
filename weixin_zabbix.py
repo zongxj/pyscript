@@ -16,6 +16,8 @@ agentid是企业应用的id，整型。可在应用的设置页面查看
 content是消息内容
 safe否表示是否是保密消息，0表示否，1表示是，默认0
 """
+
+
 class WeChatMSG(object):
     def __init__(self, content):
         self.gettoken_url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken'
