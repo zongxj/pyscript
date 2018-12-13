@@ -1,6 +1,5 @@
-#coding:utf-8
 #!/usr/bin/python
-#coding=utf8
+# coding:utf-8
 """
 # Author: zongxj
 # Created Time : 2018-02-09 14:35:47
