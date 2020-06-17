@@ -34,11 +34,12 @@ def getFilect(file, shnum):
     num = table.nrows
     for row in range(num):
         rdata = table.row_values(row)
-        datavalue.append(rdata)
+        if ('姓名') not in rdata:
+            datavalue.append(rdata)
     return datavalue
 
 # 获取sheet表的个数
-def getshnum(fh):
+def getsheetnum(fh):
     x = 0
     sh = getsheet(fh)
     for sheet in sh:
@@ -50,17 +51,16 @@ if __name__ == '__main__':
     allxls = []
     for root, dirs, files in os.walk(dir):
         for file in files:
-            if file.endswith('.xlsx'):
-                allxls.append(os.path.join(root, file))
+            #if file.endswith('.xlsx'):
+            allxls.append(os.path.join(root, file))
     # 存储所有读取的结果
     datavalue = []
     for fl in allxls:
         fh = open_xls(fl)
-        x = getshnum(fh)
+        x = getsheetnum(fh)
         for shnum in range(x):
             print("正在读取文件：" + str(fl) + "的第" + str(shnum+1) + "个sheet表的内容...")
             rvalue = getFilect(fl, shnum)
-            # print(rvalue)
     wb1 = xlsxwriter.Workbook(endfile)
     # 创建一个sheet工作对象
     ws = wb1.add_worksheet()
